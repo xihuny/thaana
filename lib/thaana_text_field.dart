@@ -21,7 +21,8 @@ class ThaanaTextField extends StatefulWidget {
   final TextEditingController? controller;
   final TextStyle? style;
 
-  const ThaanaTextField({Key? key, this.controller, this.style}) : super(key: key);
+  const ThaanaTextField({Key? key, this.controller, this.style})
+      : super(key: key);
 
   @override
   _ThaanaTextFieldState createState() => _ThaanaTextFieldState();
@@ -38,7 +39,7 @@ class _ThaanaTextFieldState extends State<ThaanaTextField> {
       ],
       style: widget.style == null
           ? const TextStyle(fontFamily: 'MVTypeWriter')
-          : widget.style?.copyWith(fontFamily: 'MVTypeWriter'),
+          : widget.style?.apply(fontFamilyFallback: ['MVTypeWriter']),
     );
   }
 }
