@@ -20,13 +20,13 @@ class ThaanaTextField extends StatefulWidget {
   */
 
   final TextEditingController? controller;
-  final TextStyle? style;
+  final TextStyle style;
   final ThaanaControllerMode mode;
 
   const ThaanaTextField({
     Key? key,
     this.controller,
-    this.style,
+    this.style = const TextStyle(fontFamily: 'MVTypeWriter'),
     this.mode = ThaanaControllerMode.ascii,
   }) : super(key: key);
 
@@ -45,9 +45,7 @@ class _ThaanaTextFieldState extends State<ThaanaTextField> {
           widget.mode,
         ), // Using our custom ThaanaTextFormatter
       ],
-      style: widget.style == null
-          ? const TextStyle(fontFamily: 'MVTypeWriter')
-          : widget.style?.apply(fontFamilyFallback: ['MVTypeWriter']),
+      style: widget.style.apply(fontFamilyFallback: ['MVTypeWriter']),
     );
   }
 }
