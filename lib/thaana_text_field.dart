@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thaana/thaana_extensions.dart';
 import 'package:thaana/thaana_text_formatter.dart';
 
 /*
@@ -20,9 +21,14 @@ class ThaanaTextField extends StatefulWidget {
 
   final TextEditingController? controller;
   final TextStyle? style;
+  final ThaanaControllerMode mode;
 
-  const ThaanaTextField({Key? key, this.controller, this.style})
-      : super(key: key);
+  const ThaanaTextField({
+    Key? key,
+    this.controller,
+    this.style,
+    this.mode = ThaanaControllerMode.ascii,
+  }) : super(key: key);
 
   @override
   _ThaanaTextFieldState createState() => _ThaanaTextFieldState();
@@ -35,7 +41,9 @@ class _ThaanaTextFieldState extends State<ThaanaTextField> {
       textDirection: TextDirection.rtl,
       controller: widget.controller,
       inputFormatters: [
-        ThaanaTextFormatter(), // Using our custom ThaanaTextFormatter
+        ThaanaTextFormatter(
+          widget.mode,
+        ), // Using our custom ThaanaTextFormatter
       ],
       style: widget.style == null
           ? const TextStyle(fontFamily: 'MVTypeWriter')
