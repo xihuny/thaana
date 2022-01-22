@@ -19,11 +19,6 @@ extension ThaanaConversion on String {
   }
 }
 
-enum ThaanaControllerMode {
-  ascii,
-  latin,
-}
-
 /*
 * Ported from jaa's thaana conversion(php) library
 * https://github.com/jawish/thaana_conversions_php/blob/master/ThaanaConversions.php

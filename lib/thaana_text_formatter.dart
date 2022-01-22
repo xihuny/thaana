@@ -8,16 +8,13 @@ import 'thaana_extensions.dart';
 */
 
 class ThaanaTextFormatter extends TextInputFormatter {
-  final ThaanaControllerMode mode;
-  ThaanaTextFormatter(this.mode);
+  ThaanaTextFormatter();
 
   @override
   TextEditingValue formatEditUpdate(
       TextEditingValue oldValue, TextEditingValue newValue) {
     return TextEditingValue(
-      text: mode == ThaanaControllerMode.latin
-          ? newValue.text.convertLatinToThaana()
-          : newValue.text.convertAsciiToThaana(),
+      text: newValue.text.convertAsciiToThaana(),
       selection: newValue.selection,
     );
   }

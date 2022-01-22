@@ -21,13 +21,11 @@ class ThaanaTextField extends StatefulWidget {
 
   final TextEditingController? controller;
   final TextStyle style;
-  final ThaanaControllerMode mode;
 
   const ThaanaTextField({
     Key? key,
     this.controller,
     this.style = const TextStyle(fontFamily: 'MVTypeWriter'),
-    this.mode = ThaanaControllerMode.ascii,
   }) : super(key: key);
 
   @override
@@ -41,9 +39,7 @@ class _ThaanaTextFieldState extends State<ThaanaTextField> {
       textDirection: TextDirection.rtl,
       controller: widget.controller,
       inputFormatters: [
-        ThaanaTextFormatter(
-          widget.mode,
-        ), // Using our custom ThaanaTextFormatter
+        ThaanaTextFormatter(), // Using our custom ThaanaTextFormatter
       ],
       style: widget.style.apply(fontFamilyFallback: ['MVTypeWriter']),
     );
