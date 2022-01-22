@@ -22,7 +22,6 @@ import 'package:thaana/thaana.dart';
 ```dart
 ThaanaTextField(
     controller: myTextEditingController,
-    mode: ThaanaControllerMode.ascii,
     style: TextStyle(...),
 );
 ```
