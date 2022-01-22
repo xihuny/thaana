@@ -8,6 +8,8 @@ import 'thaana_extensions.dart';
 */
 
 class ThaanaTextFormatter extends TextInputFormatter {
+  ThaanaTextFormatter();
+
   @override
   TextEditingValue formatEditUpdate(
       TextEditingValue oldValue, TextEditingValue newValue) {

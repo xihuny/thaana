@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thaana/thaana_extensions.dart';
 import 'package:thaana/thaana_text_formatter.dart';
 
 /*
@@ -19,9 +20,13 @@ class ThaanaTextField extends StatefulWidget {
   */
 
   final TextEditingController? controller;
-  final TextStyle? style;
+  final TextStyle style;
 
-  const ThaanaTextField({Key? key, this.controller, this.style}) : super(key: key);
+  const ThaanaTextField({
+    Key? key,
+    this.controller,
+    this.style = const TextStyle(fontFamily: 'MVTypeWriter'),
+  }) : super(key: key);
 
   @override
   _ThaanaTextFieldState createState() => _ThaanaTextFieldState();
@@ -36,9 +41,7 @@ class _ThaanaTextFieldState extends State<ThaanaTextField> {
       inputFormatters: [
         ThaanaTextFormatter(), // Using our custom ThaanaTextFormatter
       ],
-      style: widget.style == null
-          ? const TextStyle(fontFamily: 'MVTypeWriter')
-          : widget.style?.copyWith(fontFamily: 'MVTypeWriter'),
+      style: widget.style.apply(fontFamilyFallback: ['MVTypeWriter']),
     );
   }
 }

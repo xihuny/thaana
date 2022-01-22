@@ -38,7 +38,7 @@ latinToAscii(String s) {
     for (int c = 4; c > 0; c--) {
       // Get combination
       String comb =
-      input.substring(i, i + c > input.length ? input.length : i + c);
+          input.substring(i, i + c > input.length ? input.length : i + c);
 
       // Make sure combination is defined
       if (latinToAsciiMap.containsKey(comb)) {
@@ -420,7 +420,8 @@ String asciiToThaana(String s) {
   String strThaana = '';
   for (int i = 0; i < s.length; i++) {
     strThaana +=
-    (asciiToThaanaMap.containsKey(s[i]) ? asciiToThaanaMap[s[i]] : s[i]) ?? '';
+        (asciiToThaanaMap.containsKey(s[i]) ? asciiToThaanaMap[s[i]] : s[i]) ??
+            '';
   }
   return strThaana;
 }
